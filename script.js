@@ -37,31 +37,12 @@ window.addEventListener('scroll', () => {
 const style = document.createElement('style');
 style.textContent = `
     .nav-links a.active {
-        color: var(--primary) !important;
-        border-bottom: 2px solid var(--primary);
+        color: #c41e3a !important;
+        border-bottom: 2px solid #c41e3a;
         padding-bottom: 5px;
     }
 `;
 document.head.appendChild(style);
-
-// Counter animation (optional enhancement)
-const animateCounters = () => {
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
-        counter.innerText = '0';
-        const increment = parseInt(counter.getAttribute('data-target')) / 100;
-        const updateCount = () => {
-            const count = +counter.innerText;
-            if (count < parseInt(counter.getAttribute('data-target'))) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(updateCount, 1000 / 100);
-            } else {
-                counter.innerText = counter.getAttribute('data-target');
-            }
-        };
-        updateCount();
-    });
-};
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
