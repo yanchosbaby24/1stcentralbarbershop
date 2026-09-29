@@ -1,129 +1,396 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="1st Central Barbershop — nowoczesny salon barberski we Wrocławiu. Profesjonalne strzyżenie, broda, fade i stylizacja."
+    />
     <title>1st Central Barbershop – Wrocław</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span><i class="fas fa-circle"></i> Otwarte teraz</span>
+        <span>Pon–Sob: 10:00–20:00</span>
+        <a href="tel:505726791">505 726 791</a>
+      </div>
+    </div>
+
     <nav class="navbar">
-        <div class="container">
-            <div class="logo">1st CENTRAL BARBERSHOP</div>
-            <ul class="nav-links">
-                <li><a href="#home">Start</a></li>
-                <li><a href="#about">O nas</a></li>
-                <li><a href="#services">Usługi</a></li>
-                <li><a href="#gallery">Galeria</a></li>
-                <li><a href="#contact">Kontakt</a></li>
-                <li><a href="tel:505726791" class="btn-book">Zadzwoń</a></li>
-            </ul>
+      <div class="container nav-inner">
+        <div class="logo">
+          <span class="brand-mark">1st</span>
+          <span>CENTRAL BARBERSHOP</span>
         </div>
+
+        <ul class="nav-links">
+          <li><a href="#home">Start</a></li>
+          <li><a href="#about">O nas</a></li>
+          <li><a href="#services">Usługi</a></li>
+          <li><a href="#gallery">Galeria</a></li>
+          <li><a href="#reviews">Opinie</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#booking" class="btn-book">Rezerwuj</a></li>
+        </ul>
+      </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Poczuj najwyższą jakość usług barberskich</h1>
-            <p>Profesjonalne strzyżenie, pielęgnacja brody i stylizacja w sercu Wrocławia</p>
-            
-            <div class="quick-info">
-                <div class="info-box">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Zadzwoń do nas</h4>
-                        <p><a href="tel:505726791">505 726 791</a></p>
-                    </div>
+    <header id="home" class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Nowoczesny salon barberski we Wrocławiu</span>
+          <h1>Styl, precyzja i atmosfera premium.</h1>
+          <p>
+            Profesjonalne strzyżenie, pielęgnacja brody, fade i stylizacja w sercu
+            Wrocławia. Dla mężczyzn, którzy chcą wyglądać dobrze i czuć się
+            pewnie.
+          </p>
+
+          <div class="cta-row">
+            <a href="https://booksy.com/pl-pl/166270_1st-central-barbershop_barber-shop_13750_wroclaw" target="_blank" class="btn btn-primary">
+              <i class="fas fa-calendar-check"></i> Rezerwuj przez Booksy
+            </a>
+            <a href="https://wa.me/48505726791" target="_blank" class="btn btn-secondary">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-box">
+              <strong>4</strong>
+              <span>barberzy</span>
+            </div>
+            <div class="stat-box">
+              <strong>5.0</strong>
+              <span>ocena</span>
+            </div>
+            <div class="stat-box">
+              <strong>880+</strong>
+              <span>opinie</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-card main-card">
+            <div class="mini-brand">1st Central</div>
+            <h3>Barber Experience</h3>
+            <div class="mini-list">
+              <span>Fade</span>
+              <span>Broda</span>
+              <span>Stylizacja</span>
+            </div>
+            <div class="mini-cta">
+              <a href="tel:505726791">Zadzwoń: 505 726 791</a>
+            </div>
+          </div>
+
+          <div class="visual-badge badge-1">Open now</div>
+          <div class="visual-badge badge-2">Premium</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="about section-space">
+        <div class="container">
+          <div class="section-heading">
+            <span class="tag">O nas</span>
+            <h2>Profesjonalna jakość w każdej fryzurze</h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-copy">
+              <p>
+                W 1st Central Barbershop tworzymy style, które łączą nowoczesność,
+                klasykę i indywidualne podejście do każdego klienta. Nasz zespół
+                skupia się na precyzyjnych strzyżeniach, pielęgnacji brody i
+                odpowiednim dopasowaniu fryzury do typu twarzy oraz stylu życia.
+              </p>
+              <div class="feature-pills">
+                <span><i class="fas fa-check"></i> Premium styling</span>
+                <span><i class="fas fa-check"></i> Pielęgnacja brody</span>
+                <span><i class="fas fa-check"></i> Indywidualny dobór fryzury</span>
+              </div>
+            </div>
+
+            <div class="info-panel glass-panel">
+              <div class="info-row">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <small>Adres</small>
+                  <strong>Kotlarska 29, Wrocław</strong>
                 </div>
-                <div class="info-box">
-                    <i class="fas fa-calendar"></i>
-                    <div>
-                        <h4>Zarezerwuj online</h4>
-                        <p><a href="https://booksy.com/pl-pl/166270_1st-central-barbershop_barber-shop_13750_wroclaw" target="_blank">Booksy</a></p>
-                    </div>
+              </div>
+              <div class="info-row">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <small>Telefon</small>
+                  <strong><a href="tel:505726791">505 726 791</a></strong>
                 </div>
-                <div class="info-box">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Odwiedź nas</h4>
-                        <p><a href="https://www.google.com/maps/place/Kotlarska+29,+50-120+Wrocław,+Poland" target="_blank">Kotlarska 29</a></p>
-                    </div>
+              </div>
+              <div class="info-row">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <small>Godziny</small>
+                  <strong>Pon–Sob 10:00–20:00</strong>
                 </div>
+              </div>
             </div>
-            
-            <a href="tel:505726791" class="btn btn-primary">Umów wizytę</a>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section id="about" class="about">
+      <section id="services" class="services section-space">
         <div class="container">
-            <h2>O nas</h2>
-            <p>Witamy w 1st Central Barbershop – miejscu dla osób, które cenią profesjonalne usługi barberskie we Wrocławiu. Nasz doświadczony zespół dba o precyzyjne strzyżenie, pielęgnację brody i indywidualne podejście do każdego klienta.</p>
-            <div class="highlights">
-                <div class="highlight-item"><i class="fas fa-star"></i><h3>Doświadczeni barberzy</h3><p>Profesjonaliści z wieloletnim doświadczeniem</p></div>
-                <div class="highlight-item"><i class="fas fa-scissors"></i><h3>Najwyższa jakość</h3><p>Sprawdzone produkty i nowoczesne techniki</p></div>
-                <div class="highlight-item"><i class="fas fa-heart"></i><h3>Indywidualne podejście</h3><p>Dbamy o potrzeby każdego klienta</p></div>
-            </div>
-        </div>
-    </section>
+          <div class="section-heading">
+            <span class="tag">Usługi</span>
+            <h2>Wybierz idealny zabieg</h2>
+          </div>
 
-    <section id="services" class="services">
+          <div class="services-grid">
+            <article class="service-card" data-price="100">
+              <div class="service-icon"><i class="fas fa-cut"></i></div>
+              <h3>Strzyżenie klasyczne</h3>
+              <p>Nowoczesna fryzura, dopasowana do kształtu twarzy.</p>
+              <div class="service-meta">
+                <span>60 min</span>
+                <strong>100 PLN</strong>
+              </div>
+              <button class="service-btn">Dodaj do koszyka</button>
+            </article>
+
+            <article class="service-card" data-price="130">
+              <div class="service-icon"><i class="fas fa-user-cog"></i></div>
+              <h3>Strzyżenie długich włosów</h3>
+              <p>Specjalistyczna stylizacja dla dłuższych fryzur.</p>
+              <div class="service-meta">
+                <span>75 min</span>
+                <strong>130 PLN</strong>
+              </div>
+              <button class="service-btn">Dodaj do koszyka</button>
+            </article>
+
+            <article class="service-card" data-price="110">
+              <div class="service-icon"><i class="fas fa-scissors"></i></div>
+              <h3>Strzyżenie nożyczkami</h3>
+              <p>Precyzyjna technika z wykorzystaniem nożyczek.</p>
+              <div class="service-meta">
+                <span>70 min</span>
+                <strong>110 PLN</strong>
+              </div>
+              <button class="service-btn">Dodaj do koszyka</button>
+            </article>
+
+            <article class="service-card" data-price="70">
+              <div class="service-icon"><i class="fas fa-magic"></i></div>
+              <h3>Strzyżenie brody</h3>
+              <p>Modelowanie i pielęgnacja brody pod Twój styl.</p>
+              <div class="service-meta">
+                <span>30 min</span>
+                <strong>70 PLN</strong>
+              </div>
+              <button class="service-btn">Dodaj do koszyka</button>
+            </article>
+
+            <article class="service-card" data-price="170">
+              <div class="service-icon"><i class="fas fa-star"></i></div>
+              <h3>Combo premium</h3>
+              <p>Strzyżenie i broda w jednym, bardziej efektywnym pakiecie.</p>
+              <div class="service-meta">
+                <span>75 min</span>
+                <strong>170 PLN</strong>
+              </div>
+              <button class="service-btn">Dodaj do koszyka</button>
+            </article>
+
+            <article class="service-card" data-price="80">
+              <div class="service-icon"><i class="fas fa-bolt"></i></div>
+              <h3>Fade & Buzz Cut</h3>
+              <p>Nowoczesne przejścia i krótkie fryzury z mocnym efektem.</p>
+              <div class="service-meta">
+                <span>45 min</span>
+                <strong>80 PLN</strong>
+              </div>
+              <button class="service-btn">Dodaj do koszyka</button>
+            </article>
+          </div>
+
+          <div class="calculator glass-panel" id="booking">
+            <div class="calculator-header">
+              <div>
+                <span class="tag">Kalkulator</span>
+                <h3>Twój wybór</h3>
+              </div>
+              <div class="total-box">
+                <span>Łącznie</span>
+                <strong id="totalPrice">0 PLN</strong>
+              </div>
+            </div>
+
+            <ul id="selectedServices" class="selected-list">
+              <li>Brak wybranych usług</li>
+            </ul>
+
+            <div class="calculator-actions">
+              <a href="https://booksy.com/pl-pl/166270_1st-central-barbershop_barber-shop_13750_wroclaw" target="_blank" class="btn btn-primary">
+                <i class="fas fa-calendar"></i> Zarezerwuj online
+              </a>
+              <a href="tel:505726791" class="btn btn-secondary">
+                <i class="fas fa-phone"></i> Zadzwoń
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="gallery section-space">
         <div class="container">
-            <h2>Nasze usługi</h2>
-            <div class="services-grid">
-                <div class="service-card"><h3>Strzyżenie klasyczne</h3><p class="price">100 PLN</p><p class="duration">około 60 min</p><p class="description">Strzyżenie maszynką i nożyczkami</p></div>
-                <div class="service-card"><h3>Strzyżenie długich włosów</h3><p class="price">130 PLN</p><p class="duration">około 75 min</p><p class="description">Profesjonalne strzyżenie dłuższych włosów</p></div>
-                <div class="service-card"><h3>Strzyżenie samymi nożyczkami</h3><p class="price">110 PLN</p><p class="duration">około 70 min</p><p class="description">Precyzyjna technika nożyczkowa</p></div>
-                <div class="service-card"><h3>Strzyżenie brody</h3><p class="price">70 PLN</p><p class="duration">około 30 min</p><p class="description">Maszynką lub brzytwą</p></div>
-                <div class="service-card"><h3>Pakiet Combo</h3><p class="price">140–170 PLN</p><p class="duration">około 75 min</p><p class="description">Strzyżenie włosów i brody</p></div>
-                <div class="service-card"><h3>Fade i Buzz Cut</h3><p class="price">80 PLN</p><p class="duration">około 45 min</p><p class="description">Nowoczesne cieniowanie lub krótka fryzura</p></div>
-            </div>
-            <div class="promo"><h3>⏰ Happy Hours</h3><p>10:00–14:00 • Strzyżenie 90 PLN • Combo 130 PLN</p></div>
-        </div>
-    </section>
+          <div class="section-heading center">
+            <span class="tag">Galeria</span>
+            <h2>Efekty, które mówią same za siebie</h2>
+          </div>
 
-    <section id="team" class="team">
+          <div class="gallery-grid">
+            <div class="before-after-card">
+              <div class="before" aria-label="Before haircut">Before</div>
+              <div class="after" aria-label="After haircut">After</div>
+            </div>
+            <div class="before-after-card">
+              <div class="before b2" aria-label="Before haircut">Before</div>
+              <div class="after a2" aria-label="After haircut">After</div>
+            </div>
+            <div class="before-after-card">
+              <div class="before b3" aria-label="Before haircut">Before</div>
+              <div class="after a3" aria-label="After haircut">After</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="reviews section-space">
         <div class="container">
-            <h2>Nasi barberzy</h2>
-            <div class="team-grid">
-                <div class="team-member"><div class="member-avatar"><i class="fas fa-user"></i></div><h3>Yana</h3><p>Barber</p></div>
-                <div class="team-member"><div class="member-avatar"><i class="fas fa-user"></i></div><h3>Warja</h3><p>Barber</p></div>
-                <div class="team-member"><div class="member-avatar"><i class="fas fa-user"></i></div><h3>Kostja</h3><p>Barber</p></div>
-                <div class="team-member"><div class="member-avatar"><i class="fas fa-user"></i></div><h3>Valera</h3><p>Barber</p></div>
-            </div>
-        </div>
-    </section>
+          <div class="section-heading center">
+            <span class="tag">Opinie</span>
+            <h2>Co mówią nasi klienci</h2>
+          </div>
 
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2>Nasze prace</h2>
-            <p class="gallery-subtitle">Zobacz przykładowe efekty naszych usług.</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><i class="fas fa-image"></i><p>Fade i kontury</p></div>
-                <div class="gallery-item"><i class="fas fa-image"></i><p>Strzyżenie klasyczne</p></div>
-                <div class="gallery-item"><i class="fas fa-image"></i><p>Stylizacja brody</p></div>
-                <div class="gallery-item"><i class="fas fa-image"></i><p>Nowoczesne strzyżenie</p></div>
-                <div class="gallery-item"><i class="fas fa-image"></i><p>Usługa Combo</p></div>
-                <div class="gallery-item"><i class="fas fa-image"></i><p>Precyzyjne kontury</p></div>
-            </div>
-        </div>
-    </section>
+          <div class="review-grid">
+            <article class="review-card glass-panel">
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p>
+                "Bardzo profesjonalnie, czysty salon i świetna atmosfera. Fryzura
+                wyszła idealnie i długo trzyma fason."
+              </p>
+              <strong>Jakub</strong>
+            </article>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Skontaktuj się z nami</h2>
-                    <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h3>Adres</h3><p>Kotlarska 29, 50-120 Wrocław, Polska</p></div></div>
-                    <div class="info-item"><i class="fas fa-phone"></i><div><h3>Telefon</h3><p><a href="tel:505726791">505 726 791</a></p></div></div>
-                    <div class="info-item"><i class="fas fa-clock"></i><div><h3>Godziny otwarcia</h3><p>Poniedziałek–sobota: 10:00–20:00</p><p style="color: #c41e3a; margin-top: 5px;">Niedziela: zamknięte</p></div></div>
-                </div>
-                <div class="booking-box" id="booking"><h2>Zarezerwuj wizytę</h2><p>Zarezerwuj dogodny termin za pośrednictwem Booksy lub zadzwoń do nas.</p><div style="display: flex; gap: 1rem; margin-top: 20px;"><a href="https://booksy.com/pl-pl/166270_1st-central-barbershop_barber-shop_13750_wroclaw" target="_blank" class="btn btn-primary"><i class="fas fa-calendar"></i> Booksy</a><a href="tel:505726791" class="btn btn-primary"><i class="fas fa-phone"></i> Zadzwoń</a></div></div>
-            </div>
-        </div>
-    </section>
+            <article class="review-card glass-panel">
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p>
+                "Najlepsza broda w mieście. Valera robi naprawdę świetne kontury i
+                dopasowuje wszystko do twarzy."
+              </p>
+              <strong>Mateusz</strong>
+            </article>
 
-    <footer class="footer"><div class="container"><p>&copy; 2026 1st Central Barbershop. Wszelkie prawa zastrzeżone.</p><div class="footer-links"><a href="https://www.google.com/maps/place/Kotlarska+29,+50-120+Wrocław,+Poland" target="_blank" aria-label="Google Maps"><i class="fab fa-google"></i></a><a href="https://www.fresha.com/lvp/kotlarska-wroclaw-P22jzG" target="_blank" aria-label="Fresha"><i class="fas fa-link"></i></a></div></div></footer>
+            <article class="review-card glass-panel">
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+              <p>
+                "Szybko, schludnie i z dużą dbałością o detale. Widać, że to nie
+                zwykłe strzyżenie, tylko sprawdzony profesjonalizm."
+              </p>
+              <strong>Karol</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="faq section-space">
+        <div class="container faq-wrap">
+          <div class="section-heading">
+            <span class="tag">FAQ</span>
+            <h2>Najczęstsze pytania</h2>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item active">
+              <button class="faq-question">
+                <span>Jak mogę umówić wizytę?</span>
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Możesz zarezerwować termin przez Booksy lub zadzwonić pod numer 505 726 791.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Jaki jest najlepszy termin na wizytę?</span>
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Najlepiej rezerwować wcześniej, zwłaszcza w weekendy i po południu. W godzinach 10:00–14:00 mamy Happy Hours.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>Czy salon jest otwarty w niedzielę?</span>
+                <i class="fas fa-plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Nie, salon jest zamknięty w niedziele. Pracujemy od poniedziałku do soboty.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="logo small-logo">
+            <span class="brand-mark">1st</span>
+            <span>CENTRAL BARBERSHOP</span>
+          </div>
+          <p>Kotlarska 29, 50-120 Wrocław, Polska</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="tel:505726791"><i class="fas fa-phone"></i> 505 726 791</a>
+          <a href="https://wa.me/48505726791" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a href="https://booksy.com/pl-pl/166270_1st-central-barbershop_barber-shop_13750_wroclaw" target="_blank"><i class="fas fa-calendar"></i> Booksy</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="floating-cta">
+      <a href="tel:505726791" class="float-call"><i class="fas fa-phone"></i></a>
+      <a href="https://wa.me/48505726791" target="_blank" class="float-wa"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

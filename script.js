@@ -1,50 +1,94 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
+// Smooth scrolling and active nav state
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const targetId = link.getAttribute('href');
+    if (!targetId || targetId === '#') return;
+
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    event.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 });
 
-// Active navigation highlighting
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-    
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
+const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const sections = document.querySelectorAll('main section[id], header[id]');
 
-// Add active style
-const style = document.createElement('style');
-style.textContent = `
-    .nav-links a.active {
-        color: #c41e3a !important;
-        border-bottom: 2px solid #c41e3a;
-        padding-bottom: 5px;
+const setActiveLink = () => {
+  let currentId = '#home';
+
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 150) currentId = '#' + section.id;
+  });
+
+  navLinks.forEach((link) => {
+    link.classList.toggle('active', link.getAttribute('href') === currentId);
+  });
+};
+
+window.addEventListener('scroll', setActiveLink);
+setActiveLink();
+
+// Calculator
+const serviceButtons = document.querySelectorAll('.service-btn');
+const selectedList = document.getElementById('selectedServices');
+const totalPriceEl = document.getElementById('totalPrice');
+
+const selectedItems = new Map();
+
+const updateCalculator = () => {
+  selectedList.innerHTML = '';
+
+  if (selectedItems.size === 0) {
+    selectedList.innerHTML = '<li>Brak wybranych usług</li>';
+    totalPriceEl.textContent = '0 PLN';
+    return;
+  }
+
+  let total = 0;
+
+  selectedItems.forEach((item) => {
+    total += item.price;
+    const li = document.createElement('li');
+    li.textContent = `${item.name} — ${item.price} PLN`;
+    selectedList.appendChild(li);
+  });
+
+  totalPriceEl.textContent = `${total} PLN`;
+};
+
+serviceButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const card = button.closest('.service-card');
+    const name = card.querySelector('h3').textContent.trim();
+    const price = Number(card.dataset.price);
+
+    if (selectedItems.has(name)) {
+      selectedItems.delete(name);
+      button.textContent = 'Dodaj do koszyka';
+    } else {
+      selectedItems.set(name, { name, price });
+      button.textContent = 'Usunięto';
     }
-`;
-document.head.appendChild(style);
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('1st Central Barbershop website loaded successfully!');
+    updateCalculator();
+  });
+});
+
+// FAQ accordion
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach((item) => {
+  const button = item.querySelector('.faq-question');
+  button.addEventListener('click', () => {
+    const isOpen = item.classList.contains('active');
+
+    faqItems.forEach((faq) => faq.classList.remove('active'));
+
+    if (!isOpen) {
+      item.classList.add('active');
+    }
+  });
 });
