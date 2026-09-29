@@ -1,4 +1,3 @@
-// Smooth scrolling and active nav state
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
     const targetId = link.getAttribute('href');
@@ -31,11 +30,9 @@ const setActiveLink = () => {
 window.addEventListener('scroll', setActiveLink);
 setActiveLink();
 
-// Calculator
 const serviceButtons = document.querySelectorAll('.service-btn');
 const selectedList = document.getElementById('selectedServices');
 const totalPriceEl = document.getElementById('totalPrice');
-
 const selectedItems = new Map();
 
 const updateCalculator = () => {
@@ -48,7 +45,6 @@ const updateCalculator = () => {
   }
 
   let total = 0;
-
   selectedItems.forEach((item) => {
     total += item.price;
     const li = document.createElement('li');
@@ -67,7 +63,7 @@ serviceButtons.forEach((button) => {
 
     if (selectedItems.has(name)) {
       selectedItems.delete(name);
-      button.textContent = 'Dodaj do koszyka';
+      button.textContent = 'Dodaj';
     } else {
       selectedItems.set(name, { name, price });
       button.textContent = 'Usunięto';
@@ -77,18 +73,12 @@ serviceButtons.forEach((button) => {
   });
 });
 
-// FAQ accordion
 const faqItems = document.querySelectorAll('.faq-item');
-
 faqItems.forEach((item) => {
   const button = item.querySelector('.faq-question');
   button.addEventListener('click', () => {
     const isOpen = item.classList.contains('active');
-
     faqItems.forEach((faq) => faq.classList.remove('active'));
-
-    if (!isOpen) {
-      item.classList.add('active');
-    }
+    if (!isOpen) item.classList.add('active');
   });
 });
