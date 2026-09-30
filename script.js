@@ -1,74 +1,25 @@
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener('click', (event) => {
-    const targetId = link.getAttribute('href');
-    if (!targetId || targetId === '#') return;
+const translations = {
+  pl: { open:'Otwarte teraz',navHome:'Start',navAbout:'O nas',navServices:'Usługi',navTeam:'Barberzy',navGallery:'Galeria',navContact:'Kontakt',book:'Zarezerwuj',eyebrow:'Salon barberski we Wrocławiu',heroTitle:'Barbershop we Wrocławiu',heroText:'Profesjonalne strzyżenie, pielęgnacja brody, fade i stylizacja. Doświadczeni barberzy i dokładna praca.',heroCard:'Barbershop',barbers:'barberzy',rating:'ocena',reviewsCount:'opinii',aboutTitle:'O nas',aboutText:'1st Central to salon barberski dla osób, które cenią profesjonalizm, dokładność i dobrą atmosferę. Zadbamy o fryzurę, brodę i detale.',feature1:'Precyzja i detal',feature2:'Doświadczeni barberzy',feature3:'Czysta robota',address:'Adres',phone:'Telefon',hours:'Godziny',sunday:'Niedziela: zamknięte',servicesTitle:'Usługi i ceny',add:'Dodaj',yourChoice:'Twój wybór',total:'Łącznie',noServices:'Brak wybranych usług',bookOnline:'Zarezerwuj online',call:'Zadzwoń',teamTitle:'Nasi barberzy',teamText:'Wybierz osobę, której styl najbardziej Ci odpowiada.',yana:'Klasyczne strzyżenia i dokładne wykończenie.',warja:'Fade, krótkie fryzury i nowoczesne cięcia.',kostja:'Broda, kontury i klasyczny barbering.',valera:'Fade, combo i stylizacja dopasowana do klienta.',galleryTitle:'Efekty pracy',faqTitle:'Najczęstsze pytania',faqText:'Najważniejsze informacje przed wizytą.',q1:'Jak umówić wizytę?',a1:'Przez Booksy albo telefonicznie pod numerem 505 726 791.',q2:'Czy można przyjść bez rezerwacji?',a2:'Możesz zadzwonić i zapytać o wolny termin. Najlepiej zarezerwować wizytę wcześniej.',q3:'Czy salon jest otwarty w niedzielę?',a3:'Nie. W niedzielę salon jest zamknięty. Pracujemy od poniedziałku do soboty.',contactTitle:'Jak do nas trafić',directions:'Otwórz trasę w Google Maps'},
+  en: { open:'Open now',navHome:'Home',navAbout:'About',navServices:'Services',navTeam:'Barbers',navGallery:'Gallery',navContact:'Contact',book:'Book now',eyebrow:'Barbershop in Wrocław',heroTitle:'Barbershop in Wrocław',heroText:'Professional haircuts, beard grooming, fades and styling. Experienced barbers and careful work.',heroCard:'Barbershop',barbers:'barbers',rating:'rating',reviewsCount:'reviews',aboutTitle:'About us',aboutText:'1st Central is a barbershop for people who value professionalism, precision and a good atmosphere. We take care of your haircut, beard and details.',feature1:'Precision and detail',feature2:'Experienced barbers',feature3:'Clean work',address:'Address',phone:'Phone',hours:'Opening hours',sunday:'Sunday: closed',servicesTitle:'Services and prices',add:'Add',yourChoice:'Your choice',total:'Total',noServices:'No services selected',bookOnline:'Book online',call:'Call us',teamTitle:'Our barbers',teamText:'Choose the barber whose style suits you best.',yana:'Classic cuts and precise finishing.',warja:'Fades, short haircuts and modern cuts.',kostja:'Beard work, outlines and classic barbering.',valera:'Fades, combo services and tailored styling.',galleryTitle:'Our work',faqTitle:'Frequently asked questions',faqText:'Important information before your visit.',q1:'How can I book an appointment?',a1:'Use Booksy or call us at 505 726 791.',q2:'Can I come without an appointment?',a2:'Call us and ask about an available slot. Booking ahead is recommended.',q3:'Are you open on Sundays?',a3:'No. We are closed on Sundays and open Monday to Saturday.',contactTitle:'How to find us',directions:'Open route in Google Maps'},
+  ru: { open:'Сейчас открыто',navHome:'Главная',navAbout:'О нас',navServices:'Услуги',navTeam:'Барберы',navGallery:'Галерея',navContact:'Контакты',book:'Записаться',eyebrow:'Барбершоп во Вроцлаве',heroTitle:'Барбершоп во Вроцлаве',heroText:'Профессиональные стрижки, уход за бородой, fade и укладка. Опытные барберы и аккуратная работа.',heroCard:'Барбершоп',barbers:'барбера',rating:'рейтинг',reviewsCount:'отзывов',aboutTitle:'О нас',aboutText:'1st Central — барбершоп для тех, кто ценит профессионализм, точность и хорошую атмосферу. Мы позаботимся о стрижке, бороде и деталях.',feature1:'Точность и детали',feature2:'Опытные барберы',feature3:'Аккуратная работа',address:'Адрес',phone:'Телефон',hours:'Часы работы',sunday:'Воскресенье: закрыто',servicesTitle:'Услуги и цены',add:'Добавить',yourChoice:'Ваш выбор',total:'Итого',noServices:'Услуги не выбраны',bookOnline:'Записаться онлайн',call:'Позвонить',teamTitle:'Наши барберы',teamText:'Выберите барбера, чей стиль вам подходит.',yana:'Классические стрижки и точная окантовка.',warja:'Fade, короткие стрижки и современные формы.',kostja:'Борода, контуры и классический барберинг.',valera:'Fade, комбо и укладка по желанию клиента.',galleryTitle:'Наши работы',faqTitle:'Частые вопросы',faqText:'Главная информация перед визитом.',q1:'Как записаться?',a1:'Через Booksy или по телефону 505 726 791.',q2:'Можно прийти без записи?',a2:'Позвоните и уточните свободное время. Лучше записаться заранее.',q3:'Вы открыты в воскресенье?',a3:'Нет. В воскресенье мы закрыты, работаем с понедельника по субботу.',contactTitle:'Как нас найти',directions:'Открыть маршрут в Google Maps'}
+};
 
-    const target = document.querySelector(targetId);
-    if (!target) return;
+const applyLanguage = (lang) => { const dict = translations[lang] || translations.pl; document.documentElement.lang = lang; document.querySelectorAll('[data-i18n]').forEach((el) => { const key = el.dataset.i18n; if (dict[key]) el.textContent = dict[key]; }); document.querySelectorAll('[data-lang]').forEach((btn) => btn.classList.toggle('active', btn.dataset.lang === lang)); localStorage.setItem('siteLanguage', lang); };
+document.querySelectorAll('[data-lang]').forEach((btn) => btn.addEventListener('click', () => applyLanguage(btn.dataset.lang)));
+applyLanguage(localStorage.getItem('siteLanguage') || 'pl');
 
-    event.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
+document.querySelector('.menu-toggle').addEventListener('click', () => document.querySelector('.nav-links').classList.toggle('open'));
+document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => link.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open')));
+
+const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const sections = document.querySelectorAll('main section[id], header[id]');
+window.addEventListener('scroll', () => { let current = '#home'; sections.forEach((section) => { if (section.getBoundingClientRect().top <= 150) current = '#' + section.id; }); navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === current)); });
 
-const setActiveLink = () => {
-  let currentId = '#home';
+const selectedItems = new Map(); const selectedList = document.getElementById('selectedServices'); const totalPrice = document.getElementById('totalPrice');
+const updateCalculator = () => { selectedList.innerHTML = ''; if (!selectedItems.size) { selectedList.innerHTML = `<li>${translations[document.documentElement.lang].noServices}</li>`; totalPrice.textContent = '0 PLN'; return; } let total = 0; selectedItems.forEach((item) => { total += item.price; const li = document.createElement('li'); li.textContent = `${item.name} — ${item.price} PLN`; selectedList.appendChild(li); }); totalPrice.textContent = `${total} PLN`; };
+document.querySelectorAll('.service-btn').forEach((button) => button.addEventListener('click', () => { const card = button.closest('.service-card'); const name = card.querySelector('h3').textContent; const price = Number(card.dataset.price); if (selectedItems.has(name)) { selectedItems.delete(name); button.textContent = translations[document.documentElement.lang].add; } else { selectedItems.set(name, { name, price }); button.textContent = document.documentElement.lang === 'pl' ? 'Usunięto' : document.documentElement.lang === 'ru' ? 'Убрать' : 'Remove'; } updateCalculator(); }));
 
-  sections.forEach((section) => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top <= 150) currentId = '#' + section.id;
-  });
-
-  navLinks.forEach((link) => {
-    link.classList.toggle('active', link.getAttribute('href') === currentId);
-  });
-};
-
-window.addEventListener('scroll', setActiveLink);
-setActiveLink();
-
-const serviceButtons = document.querySelectorAll('.service-btn');
-const selectedList = document.getElementById('selectedServices');
-const totalPriceEl = document.getElementById('totalPrice');
-const selectedItems = new Map();
-
-const updateCalculator = () => {
-  selectedList.innerHTML = '';
-
-  if (selectedItems.size === 0) {
-    selectedList.innerHTML = '<li>Brak wybranych usług</li>';
-    totalPriceEl.textContent = '0 PLN';
-    return;
-  }
-
-  let total = 0;
-  selectedItems.forEach((item) => {
-    total += item.price;
-    const li = document.createElement('li');
-    li.textContent = `${item.name} — ${item.price} PLN`;
-    selectedList.appendChild(li);
-  });
-
-  totalPriceEl.textContent = `${total} PLN`;
-};
-
-serviceButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const card = button.closest('.service-card');
-    const name = card.querySelector('h3').textContent.trim();
-    const price = Number(card.dataset.price);
-
-    if (selectedItems.has(name)) {
-      selectedItems.delete(name);
-      button.textContent = 'Dodaj';
-    } else {
-      selectedItems.set(name, { name, price });
-      button.textContent = 'Usunięto';
-    }
-
-    updateCalculator();
-  });
-});
+document.querySelectorAll('.faq-question').forEach((button) => button.addEventListener('click', () => { const item = button.closest('.faq-item'); const open = item.classList.contains('active'); document.querySelectorAll('.faq-item').forEach((faq) => faq.classList.remove('active')); if (!open) item.classList.add('active'); }));
